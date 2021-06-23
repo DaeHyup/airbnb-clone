@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import { DateRangePicker } from 'react-date-range';
 import { Button } from '@material-ui/core';
+import { useHistory } from 'react-router-dom'
 import PeopleIcon from '@material-ui/icons/People';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import './Search.css';
 
+
 function Search() {
+  const history = useHistory();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const selectionRange = {
@@ -25,7 +28,7 @@ function Search() {
         Number of guests <PeopleIcon />
       </h2>
       <input min={0} defaultValue={2} type="number" />
-      <Button>Airbnb</Button>
+      <Button onClick={() => history.push('/search')}>Search Airbnb</Button>
     </div>
   );
 }
